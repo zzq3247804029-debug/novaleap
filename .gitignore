@@ -1,9 +1,44 @@
-node_modules
-.npm-cache
-dist
-target
-.idea
-.vscode
-*.log
+# Node / 前端
+node_modules/
+.npm-cache/
+dist/
+.cache/
+.pnpm-store/
+
+# Java / Spring Boot
+target/
+*.class
+*.jar
+*.war
+*.iml
+
+# IDE
+.idea/
+.vscode/
+*.ipr
+*.iws
+
+# Environment
 .env
+.env.*
+application-local.yml
+application-dev.yml
+
+# Logs
+*.log
+hs_err_pid*
+replay_pid*
+
+# Temp files
+.tmp*
+tmp_*
+*.tmp
+*.pid
+*.pid.txt
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Redis / Docker data
+redis-data/
