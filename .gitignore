@@ -1,16 +1,9 @@
-# Dependency directories
-**/node_modules/
-
-# Frontend build caches and outputs
-**/.vite/
-**/dist/
-
-# Local service data
-/redis-data/
-
-# Local scratch files and logs
-/.tmp_*.json
-/tmp_*.log
-/tmp_*.err.log
-/tmp_*pid.txt
-/tmp_*.jsh
+node_modules
+.npm-cache
+dist
+target
+.idea
+.vscode
+*.log
+.env
+.DS_Store
