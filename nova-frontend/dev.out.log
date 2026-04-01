@@ -1,0 +1,32 @@
+
+> nova-frontend@1.0.0 dev
+> vite --config ./vite.config.js --host localhost --port 5173 --strictPort
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m665[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+[2m01:41:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/base.css[22m
+[2m01:42:08[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mtailwind.config.js[22m
+[2m01:42:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Layout.vue, /src/styles/base.css, /src/views/Layout.vue?vue&type=style&index=0&scoped=60489549&lang.css[22m
+[2m01:43:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/home/HomeFooterCta.vue?vue&type=style&index=0&scoped=af4bc085&lang.css[22m
+[2m01:43:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Leaderboard.vue?vue&type=style&index=0&scoped=9da7496c&lang.css, /src/views/Leaderboard.vue, /src/styles/base.css[22m
+[2m01:58:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue, /src/styles/base.css[22m
+[2m01:58:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue, /src/styles/base.css[22m
+[2m01:58:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue, /src/styles/base.css[22m
+[2m01:59:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue, /src/styles/base.css[22m
+[2m01:59:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue, /src/styles/base.css[22m
+[2m01:59:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue?vue&type=style&index=0&scoped=2dc54a20&lang.css[22m
+[2m02:00:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Layout.vue, /src/styles/base.css[22m
+[2m02:01:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Layout.vue, /src/styles/base.css[22m
+[2m02:02:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Layout.vue, /src/styles/base.css[22m
+[2m02:45:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue, /src/styles/base.css[22m
+[2m02:46:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue, /src/styles/base.css[22m
+[2m02:46:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue, /src/styles/base.css[22m
+[2m02:47:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue?vue&type=style&index=0&scoped=2dc54a20&lang.css[22m
+[2m02:47:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue?vue&type=style&index=0&scoped=2dc54a20&lang.css[22m
+[2m02:48:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/home/HomeStickyPreview.vue, /src/styles/base.css[22m
+[2m02:48:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/home/HomeStickyPreview.vue, /src/styles/base.css[22m
+[2m02:49:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/home/HomeStickyPreview.vue?vue&type=style&index=0&scoped=81f71078&lang.css[22m
+[2m02:49:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/home/HomeStickyPreview.vue?vue&type=style&index=0&scoped=81f71078&lang.css[22m
+[2m02:49:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Layout.vue, /src/styles/base.css[22m

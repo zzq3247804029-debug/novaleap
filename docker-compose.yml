@@ -1,0 +1,89 @@
+services:
+  nova-mysql:
+    image: mysql:8.0
+    container_name: nova-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-novaleap_dev_password}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-novaleap}
+      TZ: ${TZ:-Asia/Shanghai}
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+      # 挂载建表脚本，容器首次初始化会自动执行
+      - ./nova-backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - nova-net
+
+  nova-redis:
+    image: redis:7.0-alpine
+    container_name: nova-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - nova-net
+
+  nova-backend:
+    build: 
+      context: ./nova-backend
+      dockerfile: Dockerfile
+    container_name: nova-backend
+    restart: always
+    depends_on:
+      - nova-mysql
+      - nova-redis
+    environment:
+      # 覆盖 application.yml 里的连接配置为内部网络 DNS
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-prod}
+      - SERVER_PORT=8080
+      - SPRING_DATASOURCE_URL=jdbc:mysql://nova-mysql:3306/${MYSQL_DATABASE:-novaleap}?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME:-root}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD:-novaleap_dev_password}
+      - SPRING_DATA_REDIS_HOST=nova-redis
+      - SPRING_DATA_REDIS_PORT=6379
+      - SPRING_AI_OPENAI_API_KEY=${SPRING_AI_OPENAI_API_KEY:-sk-disabled-placeholder}
+      - SPRING_AI_OPENAI_BASE_URL=${SPRING_AI_OPENAI_BASE_URL:-https://api.longcat.chat/openai}
+      - LONGCAT_MODEL=${LONGCAT_MODEL:-LongCat-Flash-Chat}
+      - LONGCAT_MODEL_FALLBACK=${LONGCAT_MODEL_FALLBACK:-LongCat-Flash-Lite}
+      - NOVA_JWT_SECRET=${NOVA_JWT_SECRET:-change-this-before-prod}
+      - SPRING_SQL_INIT_MODE=${SPRING_SQL_INIT_MODE:-never}
+    ports:
+      - "8080:8080"
+    networks:
+      - nova-net
+
+  nova-frontend:
+    build:
+      context: ./nova-frontend
+      dockerfile: Dockerfile
+    container_name: nova-frontend
+    restart: always
+    depends_on:
+      - nova-backend
+    ports:
+      - "80:80"
+    networks:
+      - nova-net
+
+  nova-admin:
+    build:
+      context: ./nova-admin
+      dockerfile: Dockerfile
+    container_name: nova-admin
+    restart: always
+    depends_on:
+      - nova-backend
+    ports:
+      - "8081:80"
+    networks:
+      - nova-net
+
+networks:
+  nova-net:
+    driver: bridge
